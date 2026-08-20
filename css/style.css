@@ -1,0 +1,115 @@
+/* ===== VARIABLES: the cosmic palette in one place ===== */
+:root {
+  --space-black: #05060d;       /* main background, near black */
+  --night-blue: #0a0e1f;        /* alternating section background */
+  --surface: #111629;           /* card background */
+  --cyan: #22d3ee;              /* primary accent (nebula) */
+  --cyan-soft: #67e8f9;         /* light accent */
+  --nebula-purple: #7c3aed;     /* secondary accent */
+  --text: #e8ecf5;             /* primary text */
+  --text-muted: #8b93ad;       /* secondary, dimmed text */
+  --border: rgba(120, 140, 200, 0.15);  /* subtle lines */
+}
+
+/* ===== RESET: clear margins, predictable box-sizing ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--space-black);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;   
+}
+
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+
+/* ===== NAVIGATION (shared across all pages) ===== */
+.header {
+  position: sticky;         
+  top: 0;
+  z-index: 100;
+  background: rgba(5, 6, 13, 0.7);
+  backdrop-filter: blur(12px);   
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;           
+  padding: 18px 32px;
+  display: flex;            
+  align-items: center;
+  justify-content: space-between;   
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.logo span { color: var(--cyan); }   
+
+/* Center nav links — flexbox again */
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 15px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ===== BUTTONS (shared) ===== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }   
+
+/* Primary button: filled with cyan glow */
+.btn-primary {
+  background: var(--cyan);
+  color: var(--space-black);
+}
+.btn-primary:hover {
+  background: var(--cyan-soft);
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);   
+}
+
+/* Ghost button: outlined, transparent */
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* Large variant for hero and CTA */
+.btn-large {
+  padding: 14px 28px;
+  font-size: 16px;
+}
