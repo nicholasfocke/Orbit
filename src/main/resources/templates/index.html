@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
     <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/landing.css">
+    <link rel="stylesheet" th:href="@{/css/landing.css}" href="/css/landing.css">
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
@@ -26,8 +26,8 @@
                     catálogo de mundos reais e crie o seu próprio universo.
                 </p>
                 <div class="hero-actions">
-                    <a href="register" class="btn btn-primary btn-large">Começar agora</a>
-                    <a href="catalog" class="btn btn-ghost btn-large">Ver planetas</a>
+                    <a th:href="@{/register}" href="register" class="btn btn-primary btn-large">Começar agora</a>
+                    <a th:href="@{/catalog}" href="catalog" class="btn btn-ghost btn-large">Ver planetas</a>
                 </div>
             </div>
         </section>
@@ -95,7 +95,7 @@
     </section>
     <section class="cta-final">
       <h2>Pronto para construir<br>o seu próprio cosmos?</h2>
-      <a href="register" class="btn btn-primary btn-large">Criar conta grátis</a>
+      <a th:href="@{/register}" href="register" class="btn btn-primary btn-large">Criar conta grátis</a>
     </section>
     </main>
 

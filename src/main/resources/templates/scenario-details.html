@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${scenario.nome + ' — Orbit'}">Cenário — Orbit</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
+    <link rel="stylesheet" th:href="@{/css/scenarios.css}" href="/css/scenarios.css">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main class="scenario-details">
+        <span class="hero-eyebrow">Detalhes do cenário</span>
+        <h1 class="section-title" th:text="${scenario.nome}">Nome do cenário</h1>
+
+        <div class="scenario-details-card">
+            <dl class="planet-stats">
+                <div><dt>Corpo central</dt><dd th:text="${scenario.corpoCentral}">Sol</dd></div>
+                <div><dt>Quantidade de corpos</dt><dd th:text="${scenario.quantidadeCorpos}">0</dd></div>
+                <div><dt>Notas</dt><dd th:text="${scenario.notas}">—</dd></div>
+            </dl>
+        </div>
+
+        <div class="scenario-details-actions">
+            <a th:href="@{/sandbox}" href="sandbox" class="btn btn-primary">Abrir no sandbox</a>
+            <a th:href="@{/scenarios}" href="scenarios" class="btn btn-ghost">Voltar para a lista</a>
+        </div>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

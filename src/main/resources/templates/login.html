@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
     <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" th:href="@{/css/auth.css}" href="/css/auth.css">
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
@@ -29,12 +29,12 @@
                     <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••">
                 </label>
 
-                <a class="auth-forgot" href="forgot-password">Esqueceu a senha?</a>
+                <a class="auth-forgot" th:href="@{/forgot-password}" href="forgot-password">Esqueceu a senha?</a>
 
                 <button type="submit" class="btn btn-primary btn-large auth-submit">Entrar</button>
             </form>
 
-            <p class="auth-switch">Não tem uma conta? <a href="register">Cadastre-se</a></p>
+            <p class="auth-switch">Não tem uma conta? <a th:href="@{/register}" href="register">Cadastre-se</a></p>
         </div>
     </main>
 

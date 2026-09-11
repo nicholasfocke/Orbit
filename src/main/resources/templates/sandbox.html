@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
     <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/sandbox.css">
+    <link rel="stylesheet" th:href="@{/css/sandbox.css}" href="/css/sandbox.css">
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
@@ -17,10 +17,15 @@
         <h1>Seu universo está carregando.</h1>
         <p class="sandbox-note">
             O motor de física — lançar corpos arrastando, gravidade newtoniana em
-            tempo real, cenários salvos — entra aqui quando o backend em Spring for
-            conectado.
+            tempo real — ainda está em construção. Por enquanto você pode montar e
+            guardar configurações de simulação na tela de cenários.
         </p>
         <div class="sandbox-placeholder" id="sandboxCanvas" aria-hidden="true"></div>
+
+        <div class="sandbox-actions">
+            <a th:href="@{/scenarios/novo}" href="scenarios/novo" class="btn btn-primary">Criar cenário</a>
+            <a th:href="@{/scenarios}" href="scenarios" class="btn btn-ghost">Ver meus cenários</a>
+        </div>
     </main>
 
     <footer th:replace="~{fragments/footer :: footer}"></footer>

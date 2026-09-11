@@ -1,0 +1,71 @@
+/* ===== SCENARIOS: listagem e detalhes dos cenários salvos ===== */
+.scenarios-toolbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.scenario-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.scenario-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--cyan);
+  box-shadow: 0 16px 40px rgba(34, 211, 238, 0.12);
+}
+.scenario-card h3 { font-size: 22px; font-weight: 700; }
+.scenario-card .planet-desc { min-height: 0; }
+
+.scenario-card .planet-stats { grid-template-columns: 1fr; }
+
+.scenario-card-actions {
+  margin-top: 16px;
+}
+
+.scenarios-empty {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ===== SCENARIO DETAILS ===== */
+.scenario-details {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 100px 32px 120px;
+}
+.scenario-details .hero-eyebrow {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.scenario-details-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  margin-top: 24px;
+}
+.scenario-details-actions {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+}

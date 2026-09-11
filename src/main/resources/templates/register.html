@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
     <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" th:href="@{/css/auth.css}" href="/css/auth.css">
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
@@ -42,7 +42,7 @@
                 <button type="submit" class="btn btn-primary btn-large auth-submit">Criar conta</button>
             </form>
 
-            <p class="auth-switch">Já tem uma conta? <a href="login">Entrar</a></p>
+            <p class="auth-switch">Já tem uma conta? <a th:href="@{/login}" href="login">Entrar</a></p>
         </div>
     </main>
 

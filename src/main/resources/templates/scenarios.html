@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenários — Orbit</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
+    <link rel="stylesheet" th:href="@{/css/catalog.css}" href="/css/catalog.css">
+    <link rel="stylesheet" th:href="@{/css/scenarios.css}" href="/css/scenarios.css">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main>
+        <section class="catalog-hero">
+            <p class="hero-eyebrow">Cenários salvos</p>
+            <h1 class="section-title">Meus cenários.</h1>
+            <p class="catalog-intro">
+                Configurações de simulação guardadas em memória durante a execução
+                da aplicação. Crie um novo cenário para testar no sandbox.
+            </p>
+        </section>
+
+        <div class="scenarios-toolbar">
+            <a th:href="@{/scenarios/novo}" href="scenarios/novo" class="btn btn-primary btn-large">+ Novo cenário</a>
+        </div>
+
+        <section class="catalog-grid" th:if="${not #lists.isEmpty(scenarios)}">
+            <article class="scenario-card" th:each="scenario : ${scenarios}">
+                <h3 th:text="${scenario.nome}">Nome do cenário</h3>
+                <p class="planet-desc" th:text="${scenario.notas}">Notas do cenário</p>
+                <dl class="planet-stats">
+                    <div><dt>Corpo central</dt><dd th:text="${scenario.corpoCentral}">Sol</dd></div>
+                    <div><dt>Quantidade de corpos</dt><dd th:text="${scenario.quantidadeCorpos}">0</dd></div>
+                </dl>
+                <div class="scenario-card-actions">
+                    <a th:href="@{/scenarios/{id}(id=${scenario.id})}" href="#" class="btn btn-ghost">Ver detalhes</a>
+                </div>
+            </article>
+        </section>
+
+        <p class="scenarios-empty" th:if="${#lists.isEmpty(scenarios)}">
+            Nenhum cenário criado ainda.
+        </p>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

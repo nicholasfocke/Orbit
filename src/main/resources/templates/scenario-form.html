@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo cenário — Orbit</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
+    <link rel="stylesheet" th:href="@{/css/auth.css}" href="/css/auth.css">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main class="auth-page">
+        <div class="auth-card">
+            <p class="hero-eyebrow">Novo cenário</p>
+            <h1>Crie um cenário</h1>
+            <p class="auth-subtitle">Descreva a configuração e ela entra na sua lista de cenários.</p>
+
+            <form class="auth-form" th:action="@{/scenarios}" th:object="${scenario}" method="post">
+                <label class="field">
+                    <span>Nome do cenário</span>
+                    <input type="text" th:field="*{nome}" required placeholder="Ex.: Sistema binário instável">
+                </label>
+
+                <label class="field">
+                    <span>Corpo central</span>
+                    <input type="text" th:field="*{corpoCentral}" required placeholder="Ex.: Sol, buraco negro, estrela dupla...">
+                </label>
+
+                <label class="field">
+                    <span>Quantidade de corpos</span>
+                    <input type="number" th:field="*{quantidadeCorpos}" min="1" required placeholder="Ex.: 5">
+                </label>
+
+                <label class="field">
+                    <span>Notas</span>
+                    <input type="text" th:field="*{notas}" placeholder="Alguma observação sobre o cenário">
+                </label>
+
+                <button type="submit" class="btn btn-primary btn-large auth-submit">Salvar cenário</button>
+            </form>
+
+            <p class="auth-switch"><a th:href="@{/scenarios}" href="scenarios">Voltar para a lista de cenários</a></p>
+        </div>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

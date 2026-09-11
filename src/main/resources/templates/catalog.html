@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
     <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="stylesheet" th:href="@{/css/catalog.css}" href="/css/catalog.css">
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
@@ -22,12 +22,24 @@
             </p>
         </section>
 
-        <section class="catalog-grid" id="catalogGrid"></section>
+        <section class="catalog-grid" id="catalogGrid">
+            <article class="planet-card" th:each="planet : ${planets}">
+                <canvas class="planet-canvas"
+                        th:attr="data-color=${planet.color},data-rings=${planet.hasRings}"></canvas>
+                <h3 th:text="${planet.name}">Nome do planeta</h3>
+                <p class="planet-desc" th:text="${planet.description}">Descrição</p>
+                <dl class="planet-stats">
+                    <div><dt>Massa</dt><dd th:text="${planet.mass}">Massa</dd></div>
+                    <div><dt>Distância do Sol</dt><dd th:text="${planet.distance}">Distância</dd></div>
+                    <div><dt>Temperatura média</dt><dd th:text="${planet.temperature}">Temperatura</dd></div>
+                    <div><dt>Duração do dia</dt><dd th:text="${planet.dayLength}">Dia</dd></div>
+                </dl>
+            </article>
+        </section>
     </main>
 
     <footer th:replace="~{fragments/footer :: footer}"></footer>
 
-    <script src="/js/planets-data.js"></script>
     <script src="/js/planet-viewer.js"></script>
     <script src="/js/catalog.js"></script>
 </body>

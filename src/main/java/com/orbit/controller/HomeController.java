@@ -11,11 +11,6 @@ public class HomeController {
         return "index";      // procura templates/index.html
     }
 
-    @GetMapping("/catalog")
-    public String catalog() {
-        return "catalog";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "login";
