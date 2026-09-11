@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar — Orbit</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main class="auth-page">
+        <div class="auth-card">
+            <p class="hero-eyebrow">Bem-vindo de volta</p>
+            <h1>Entrar no Orbit</h1>
+            <p class="auth-subtitle">Acesse seus cenários salvos e o sandbox de gravidade.</p>
+
+            <form id="loginForm" class="auth-form" novalidate>
+                <label class="field">
+                    <span>E-mail</span>
+                    <input type="email" name="email" required autocomplete="email" placeholder="voce@exemplo.com">
+                </label>
+
+                <label class="field">
+                    <span>Senha</span>
+                    <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••">
+                </label>
+
+                <a class="auth-forgot" href="forgot-password">Esqueceu a senha?</a>
+
+                <button type="submit" class="btn btn-primary btn-large auth-submit">Entrar</button>
+            </form>
+
+            <p class="auth-switch">Não tem uma conta? <a href="register">Cadastre-se</a></p>
+        </div>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script>
+        // Página apenas visual: nao ha verificacao de login.
+        // Ao enviar o formulario, so vamos para a pagina do sandbox.
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            window.location.href = "sandbox";
+        });
+    </script>
+</body>
+</html>

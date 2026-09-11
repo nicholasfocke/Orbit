@@ -1,0 +1,85 @@
+/* ===== VARIABLES: the cosmic palette in one place ===== */
+:root {
+  --space-black: #05060d;       /* main background, near black */
+  --night-blue: #0a0e1f;        /* alternating section background */
+  --surface: #111629;           /* card background */
+  --cyan: #22d3ee;              /* primary accent (nebula) */
+  --cyan-soft: #67e8f9;         /* light accent */
+  --nebula-purple: #7c3aed;     /* secondary accent */
+  --text: #e8ecf5;             /* primary text */
+  --text-muted: #8b93ad;       /* secondary, dimmed text */
+  --border: rgba(120, 140, 200, 0.15);  /* subtle lines */
+}
+
+/* ===== RESET: clear margins, predictable box-sizing ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   
+}
+
+/* ===== BASE ===== */
+html, body { height: 100%; }
+
+/* Sticky footer: main grows to fill the viewport so the footer sits at the
+   bottom on short pages (login, register, ...) instead of floating mid-screen,
+   while still flowing normally on tall pages (landing, catalog). */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--space-black);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1 0 auto; }
+
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+[hidden] { display: none !important; }
+
+/* ===== BUTTONS (shared) ===== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+button.btn {
+  font-family: inherit;
+  background: transparent;
+}
+
+/* Primary button: filled with cyan glow */
+.btn-primary {
+  background: var(--cyan);
+  color: var(--space-black);
+}
+.btn-primary:hover {
+  background: var(--cyan-soft);
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);   
+}
+
+/* Ghost button: outlined, transparent */
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* Large variant for hero and CTA */
+.btn-large {
+  padding: 14px 28px;
+  font-size: 16px;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <footer class="footer" th:fragment="footer">
+        <div class="footer-top">
+            <a th:href="@{/}" href="/" class="logo" aria-label="Orbit — página inicial">Orbit<span>°</span></a>
+            <p>Um simulador de gravidade para explorar o universo.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Orbit — projeto de física da faculdade.</p>
+            <nav class="footer-links" aria-label="Navegação do rodapé">
+                <a th:href="@{/catalog}" href="/catalog">Catálogo</a>
+                <a th:href="@{/login}" href="/login">Entrar</a>
+                <a th:href="@{/register}" href="/register">Cadastrar</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

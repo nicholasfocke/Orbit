@@ -1,0 +1,59 @@
+/* Cabeçalho global: todas as páginas usam este mesmo componente. */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5, 6, 13, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.logo span { color: var(--cyan); }
+
+.nav-right,
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right { gap: 40px; }
+.nav-actions { gap: 12px; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible { color: var(--text); }
+
+@media (max-width: 850px) {
+  .nav { padding: 14px 20px; }
+  .nav-right { gap: 16px; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 480px) {
+  .nav-actions .btn { padding: 8px 12px; }
+}

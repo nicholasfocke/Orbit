@@ -1,0 +1,51 @@
+/* Rodapé global: mantém o mesmo acabamento e espaçamento em todo o site. */
+.footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--border);
+  padding: 48px 32px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.footer-top p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible { color: var(--cyan); }
+
+@media (max-width: 600px) {
+  .footer { padding: 36px 20px 24px; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; }
+}

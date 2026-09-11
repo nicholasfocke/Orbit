@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox — Orbit</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/sandbox.css">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main class="sandbox-page">
+        <p class="hero-eyebrow">Sandbox de gravidade</p>
+        <h1>Seu universo está carregando.</h1>
+        <p class="sandbox-note">
+            O motor de física — lançar corpos arrastando, gravidade newtoniana em
+            tempo real, cenários salvos — entra aqui quando o backend em Spring for
+            conectado.
+        </p>
+        <div class="sandbox-placeholder" id="sandboxCanvas" aria-hidden="true"></div>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

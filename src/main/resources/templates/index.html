@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit — Simulador de Gravidade</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+    <main>
+        <section class="hero">
+            <div class="hero-visual" id="heroCanvas" aria-hidden="true"></div>
+            <div class="hero-content">
+                <p class="hero-eyebrow">Física newtoniana em tempo real</p>
+                <h1 class="hero-title">
+                    Simule o cosmos.<br>
+                    <span class="highlight">Uma órbita de cada vez.</span>
+                </h1>
+                <p class="hero-description">
+                    Monte sistemas planetários, ajuste massas e velocidades e veja
+                    a gravidade desenhar órbitas diante dos seus olhos. Explore um
+                    catálogo de mundos reais e crie o seu próprio universo.
+                </p>
+                <div class="hero-actions">
+                    <a href="register" class="btn btn-primary btn-large">Começar agora</a>
+                    <a href="catalog" class="btn btn-ghost btn-large">Ver planetas</a>
+                </div>
+            </div>
+        </section>
+          <section class="stats">
+            <div class="stat">
+                <span class="stat-number">5000+</span>
+                <span class="stat-label">exoplanetas conhecidos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">60fps</span>
+                <span class="stat-label">simulação em tempo real</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">cenários possíveis</span>
+            </div>
+    </section>
+    <section id="features" class="features">
+        <span class="section-label">Recursos</span>
+        <h2 class="section-title">Tudo o que você precisa para explorar.</h2>
+        <div class="features-grid">
+            <article class="card">
+                <span class="card-number">01</span>
+                <h3>Física de verdade</h3>
+                <p>Todo corpo obedece à lei da gravitação universal. Órbitas,
+                colisões e caos — tudo calculado quadro a quadro.</p>
+            </article>
+
+            <article class="card">
+            <span class="card-number">02</span>
+                <h3>Catálogo de mundos</h3>
+                <p>Explore os planetas do Sistema Solar e exoplanetas reais, com
+                dados de massa, distância e temperatura.</p>
+            </article>
+
+            <article class="card">
+                <span class="card-number">03</span>
+                <h3>Seu laboratório</h3>
+                <p>Arraste para lançar novos corpos, ajuste parâmetros e salve os
+             cenários que você criar.</p>
+        </article>
+        </div>
+    </section>
+    <section id="how-it-works" class="how-it-works">
+      <span class="section-label">Como funciona</span>
+      <h2 class="section-title">Três passos até o seu universo.</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">I</span>
+          <h3>Crie sua conta</h3>
+          <p>Cadastre-se em segundos para acessar o simulador e salvar seu progresso.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">II</span>
+          <h3>Escolha um cenário</h3>
+          <p>Comece pelo Sistema Solar ou monte tudo do zero no sandbox.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">III</span>
+          <h3>Simule e explore</h3>
+          <p>Ajuste a gravidade e veja mundos nascerem, orbitarem e colidirem.</p>
+        </li>
+      </ol>
+    </section>
+    <section class="cta-final">
+      <h2>Pronto para construir<br>o seu próprio cosmos?</h2>
+      <a href="register" class="btn btn-primary btn-large">Criar conta grátis</a>
+    </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script src="/js/planets-data.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/nav.js"></script>
+    <script type="module" src="/js/solar-system.js"></script>
+</body>
+</html>

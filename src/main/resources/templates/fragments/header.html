@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <header class="header" th:fragment="header">
+        <nav class="nav" aria-label="Navegação principal">
+            <a th:href="@{/}" href="/" class="logo" aria-label="Orbit — página inicial">Orbit<span>°</span></a>
+
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a th:href="@{/#features}" href="/#features">Recursos</a></li>
+                    <li><a th:href="@{/#how-it-works}" href="/#how-it-works">Como funciona</a></li>
+                    <li><a th:href="@{/catalog}" href="/catalog">Catálogo</a></li>
+                    <li><a th:href="@{/sandbox}" href="/sandbox">Sandbox</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a th:href="@{/login}" href="/login" class="btn btn-ghost">Entrar</a>
+                    <a th:href="@{/register}" href="/register" class="btn btn-primary">Cadastrar</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
