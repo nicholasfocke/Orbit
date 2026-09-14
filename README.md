@@ -1,9 +1,7 @@
 # Orbit
 
 Simulador de gravidade e catálogo do Sistema Solar, construído como uma
-aplicação **Java + Spring Boot + Thymeleaf**. Evolução do protótipo original
-feito em HTML, CSS e JavaScript puro, mantendo o mesmo visual e as mesmas
-funcionalidades, agora servidas por um backend em Spring.
+aplicação **Java + Spring Boot + Thymeleaf**.
 
 ## Integrantes da dupla
 
