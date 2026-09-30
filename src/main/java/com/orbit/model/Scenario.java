@@ -22,14 +22,14 @@ public class Scenario {
     private Long id;
 
     @Column(nullable = false)
-    private String nome;
+    private String name;
 
     @Column(nullable = false)
-    private String corpoCentral;
+    private String centralBody;
 
     @Column(nullable = false)
-    private Integer quantidadeCorpos;
+    private Integer bodiesQuantity;
 
     @Column(length = 2000)
-    private String notas;
+    private String notes;
 }

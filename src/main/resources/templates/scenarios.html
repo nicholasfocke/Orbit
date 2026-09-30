@@ -29,14 +29,14 @@
 
         <section class="catalog-grid" th:if="${not #lists.isEmpty(scenarios)}">
             <article class="scenario-card" th:each="scenario : ${scenarios}">
-                <h3 th:text="${scenario.nome}">Nome do cenário</h3>
-                <p class="planet-desc" th:text="${scenario.notas}">Notas do cenário</p>
+                <h3 th:text="${scenario.name}">Nome do cenário</h3>
+                <p class="planet-desc" th:text="${scenario.notes}">Notas do cenário</p>
                 <dl class="planet-stats">
-                    <div><dt>Corpo central</dt><dd th:text="${scenario.corpoCentral}">Sol</dd></div>
-                    <div><dt>Quantidade de corpos</dt><dd th:text="${scenario.quantidadeCorpos}">0</dd></div>
+                    <div><dt>Central body</dt><dd th:text="${scenario.centralBody}">Sol</dd></div>
+                    <div><dt>Bodies quantity</dt><dd th:text="${scenario.bodiesQuantity}">0</dd></div>
                 </dl>
                 <div class="scenario-card-actions">
-                    <a th:href="@{/scenarios/{id}(id=${scenario.id})}" href="#" class="btn btn-ghost">Ver detalhes</a>
+                    <a th:href="@{/scenarios/{id}(id=${scenario.id})}" href="#" class="btn btn-ghost">View details</a>
                 </div>
             </article>
         </section>
