@@ -39,7 +39,7 @@ public class ScenarioController {
     @GetMapping("/{id}")
     public String detalhes(@PathVariable Long id, Model model) {
         Scenario scenario = scenarioService.buscarPorId(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cenário não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "CenÃ¡rio nÃ£o encontrado"));
         model.addAttribute("scenario", scenario);
         return "scenario-details";
     }
