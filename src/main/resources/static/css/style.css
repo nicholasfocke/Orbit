@@ -49,12 +49,12 @@ ul, ol { list-style: none; }
   font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
-.btn:hover { transform: translateY(-2px); }
+.btn:hover { transform: translateY(-1px); }
+/* <button> só herda a fonte; o fundo vem de .btn-primary / .btn-ghost */
 button.btn {
   font-family: inherit;
-  background: transparent;
 }
 
 /* Primary button: filled with cyan glow */
@@ -64,7 +64,7 @@ button.btn {
 }
 .btn-primary:hover {
   background: var(--cyan-soft);
-  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);   
+  box-shadow: 0 4px 14px rgba(34, 211, 238, 0.18);
 }
 
 /* Ghost button: outlined, transparent */

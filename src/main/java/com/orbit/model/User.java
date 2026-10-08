@@ -7,10 +7,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
-@Data
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,9 +35,8 @@ public class User {
     @Column(nullable = false)
     private String fullName;
 
-    public User(String email, String password, String fullName) {
-        this.email = email;
-        this.password = password;
-        this.fullName = fullName;
-    }
+    // Preenchido automaticamente pelo Hibernate no momento do insert.
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 }

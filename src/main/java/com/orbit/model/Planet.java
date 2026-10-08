@@ -7,10 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+// Item do catálogo (Sol, planetas, Plutão). Dados fixos, criados pelo DataLoader.
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -24,14 +27,14 @@ public class Planet {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 7)
     private String color;
 
     @Column(nullable = false)
     private int size;
 
     @Column(nullable = false)
-    private boolean hasRings;
+    private boolean rings;
 
     @Column(nullable = false, length = 2000)
     private String description;

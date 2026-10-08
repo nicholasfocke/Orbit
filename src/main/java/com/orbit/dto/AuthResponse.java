@@ -12,10 +12,4 @@ public class AuthResponse {
     private String email;
     private String fullName;
     private String token;
-
-    public AuthResponse(Long id, String email, String fullName) {
-        this.id = id;
-        this.email = email;
-        this.fullName = fullName;
-    }
 }

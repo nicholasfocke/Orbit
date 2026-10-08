@@ -12,22 +12,33 @@
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
 
-    <main class="sandbox-page">
-        <p class="hero-eyebrow">Sandbox de gravidade</p>
-        <h1>Seu universo está carregando.</h1>
-        <p class="sandbox-note">
-            O motor de física — lançar corpos arrastando, gravidade newtoniana em
-            tempo real — ainda está em construção. Por enquanto você pode montar e
-            guardar configurações de simulação na tela de cenários.
-        </p>
-        <div class="sandbox-placeholder" id="sandboxCanvas" aria-hidden="true"></div>
+    <main class="sim-page">
+        <div class="sim-heading">
+            <p class="hero-eyebrow">Sandbox de gravidade</p>
+            <h1>O Sistema Solar, em tempo real.</h1>
+            <p class="sandbox-note">
+                Cada planeta é puxado pela gravidade de todos os outros corpos.
+                <span th:unless="${loggedIn}">Entre na sua conta para criar cenários e lançar seus próprios corpos.</span>
+                <span th:if="${loggedIn}">Crie um cenário para lançar seus próprios corpos.</span>
+            </p>
+        </div>
 
-        <div class="sandbox-actions">
-            <a th:href="@{/scenarios/novo}" href="scenarios/novo" class="btn btn-primary">Criar cenário</a>
-            <a th:href="@{/scenarios}" href="scenarios" class="btn btn-ghost">Ver meus cenários</a>
+        <div class="sim-area" id="sandboxCanvas" th:attr="data-url=@{/sandbox/bodies}"></div>
+
+        <div class="sim-controls">
+            <button type="button" class="btn btn-ghost" id="btnPausar">Pausar</button>
+            <button type="button" class="btn btn-ghost" id="btnReiniciar">Reiniciar</button>
+            <label class="sim-speed">
+                Velocidade
+                <input type="range" id="velocidadeTempo" min="1" max="20" value="4">
+            </label>
+            <a th:if="${loggedIn}" th:href="@{/scenarios/novo}" href="/scenarios/novo" class="btn btn-primary">Criar cenário</a>
+            <a th:unless="${loggedIn}" th:href="@{/login}" href="/login" class="btn btn-primary">Entrar para criar</a>
         </div>
     </main>
 
     <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script src="/js/sandbox.js"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
             <p class="hero-eyebrow">Catálogo de mundos</p>
             <h1 class="section-title">O Sistema Solar.</h1>
             <p class="catalog-intro">
-                Oito planetas, com dados físicos reais, desenhados no seu navegador.
+                O Sol, os oito planetas e Plutão, com dados físicos reais, desenhados no seu navegador.
                 Passe o mouse sobre um mundo para acelerá-lo.
             </p>
         </section>
@@ -25,7 +25,7 @@
         <section class="catalog-grid" id="catalogGrid">
             <article class="planet-card" th:each="planet : ${planets}">
                 <canvas class="planet-canvas"
-                        th:attr="data-color=${planet.color},data-rings=${planet.hasRings}"></canvas>
+                        th:attr="data-color=${planet.color},data-rings=${planet.rings}"></canvas>
                 <h3 th:text="${planet.name}">Nome do planeta</h3>
                 <p class="planet-desc" th:text="${planet.description}">Descrição</p>
                 <dl class="planet-stats">

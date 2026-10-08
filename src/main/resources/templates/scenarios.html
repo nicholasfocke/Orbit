@@ -18,8 +18,8 @@
             <p class="hero-eyebrow">Cenários salvos</p>
             <h1 class="section-title">Meus cenários.</h1>
             <p class="catalog-intro">
-                Configurações de simulação guardadas em memória durante a execução
-                da aplicação. Crie um novo cenário para testar no sandbox.
+                Cada cenário é uma cópia do Sistema Solar onde você pode lançar
+                seus próprios corpos e ver como eles interagem com os planetas.
             </p>
         </section>
 
@@ -32,11 +32,11 @@
                 <h3 th:text="${scenario.name}">Nome do cenário</h3>
                 <p class="planet-desc" th:text="${scenario.notes}">Notas do cenário</p>
                 <dl class="planet-stats">
-                    <div><dt>Central body</dt><dd th:text="${scenario.centralBody}">Sol</dd></div>
-                    <div><dt>Bodies quantity</dt><dd th:text="${scenario.bodiesQuantity}">0</dd></div>
+                    <div><dt>Corpos</dt><dd th:text="${#lists.size(scenario.bodies)}">0</dd></div>
+                    <div><dt>Criado em</dt><dd th:text="${#temporals.format(scenario.createdAt, 'dd/MM/yyyy HH:mm')}">01/01/2026</dd></div>
                 </dl>
                 <div class="scenario-card-actions">
-                    <a th:href="@{/scenarios/{id}(id=${scenario.id})}" href="#" class="btn btn-ghost">View details</a>
+                    <a th:href="@{/scenarios/{id}(id=${scenario.id})}" href="#" class="btn btn-primary">Abrir simulação</a>
                 </div>
             </article>
         </section>

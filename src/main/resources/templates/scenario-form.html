@@ -16,30 +16,20 @@
         <div class="auth-card">
             <p class="hero-eyebrow">Novo cenário</p>
             <h1>Crie um cenário</h1>
-            <p class="auth-subtitle">Descreva a configuração e ela entra na sua lista de cenários.</p>
+            <p class="auth-subtitle">Todo cenário começa com o Sistema Solar. Depois é só adicionar seus próprios corpos.</p>
 
             <form class="auth-form" th:action="@{/scenarios}" th:object="${scenario}" method="post">
                 <label class="field">
-                    <span>Scenario name</span>
-                    <input type="text" th:field="*{name}" required placeholder="Ex.: Unstable binary system">
+                    <span>Nome do cenário</span>
+                    <input type="text" th:field="*{name}" required placeholder="Ex.: Intruso no Sistema Solar">
                 </label>
 
                 <label class="field">
-                    <span>Central body</span>
-                    <input type="text" th:field="*{centralBody}" required placeholder="Ex.: Sun, black hole, binary star...">
+                    <span>Notas</span>
+                    <input type="text" th:field="*{notes}" placeholder="Alguma observação sobre o cenário">
                 </label>
 
-                <label class="field">
-                    <span>Bodies quantity</span>
-                    <input type="number" th:field="*{bodiesQuantity}" min="1" required placeholder="Ex.: 5">
-                </label>
-
-                <label class="field">
-                    <span>Notes</span>
-                    <input type="text" th:field="*{notes}" placeholder="Any observation about the scenario">
-                </label>
-
-                <button type="submit" class="btn btn-primary btn-large auth-submit">Save scenario</button>
+                <button type="submit" class="btn btn-primary btn-large auth-submit">Criar cenário</button>
             </form>
 
             <p class="auth-switch"><a th:href="@{/scenarios}" href="scenarios">Voltar para a lista de cenários</a></p>

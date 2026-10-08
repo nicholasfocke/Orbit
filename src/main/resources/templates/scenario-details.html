@@ -3,33 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${scenario.name + ' — Orbit'}">Scenario — Orbit</title>
+    <title th:text="${scenario.name + ' — Orbit'}">Cenário — Orbit</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <link rel="stylesheet" th:href="@{/css/header.css}" href="/css/header.css">
     <link rel="stylesheet" th:href="@{/css/footer.css}" href="/css/footer.css">
-    <link rel="stylesheet" th:href="@{/css/scenarios.css}" href="/css/scenarios.css">
+    <link rel="stylesheet" th:href="@{/css/auth.css}" href="/css/auth.css">
+    <link rel="stylesheet" th:href="@{/css/sandbox.css}" href="/css/sandbox.css">
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
 
-    <main class="scenario-details">
-        <span class="hero-eyebrow">Scenario details</span>
-        <h1 class="section-title" th:text="${scenario.name}">Scenario name</h1>
-
-        <div class="scenario-details-card">
-            <dl class="planet-stats">
-                <div><dt>Central body</dt><dd th:text="${scenario.centralBody}">Sun</dd></div>
-                <div><dt>Bodies quantity</dt><dd th:text="${scenario.bodiesQuantity}">0</dd></div>
-                <div><dt>Notes</dt><dd th:text="${scenario.notes}">—</dd></div>
-            </dl>
+    <main class="sim-page">
+        <div class="sim-heading">
+            <p class="hero-eyebrow">Cenário</p>
+            <h1 th:text="${scenario.name}">Nome do cenário</h1>
+            <p class="sandbox-note" th:if="${scenario.notes}" th:text="${scenario.notes}">Notas</p>
         </div>
 
-        <div class="scenario-details-actions">
-            <a th:href="@{/sandbox}" href="sandbox" class="btn btn-primary">Open in sandbox</a>
-            <a th:href="@{/scenarios}" href="scenarios" class="btn btn-ghost">Back to list</a>
+        <div class="sim-layout">
+            <section>
+                <!-- O sandbox.js busca os corpos neste endereço (JSON) e desenha aqui. -->
+                <div class="sim-area" id="sandboxCanvas"
+                     th:attr="data-url=@{/scenarios/{id}/bodies(id=${scenario.id})}"></div>
+
+                <div class="sim-controls">
+                    <button type="button" class="btn btn-ghost" id="btnPausar">Pausar</button>
+                    <button type="button" class="btn btn-ghost" id="btnReiniciar">Reiniciar</button>
+                    <label class="sim-speed">
+                        Velocidade
+                        <input type="range" id="velocidadeTempo" min="1" max="20" value="4">
+                    </label>
+                </div>
+            </section>
+
+            <aside class="sim-panel">
+                <h2>Novo corpo</h2>
+                <p class="sim-hint">
+                    Clique no espaço para escolher a posição: a velocidade é preenchida
+                    para uma órbita circular em volta do Sol. Depois ajuste como quiser.
+                </p>
+
+                <form class="auth-form" id="bodyForm" th:object="${body}"
+                      th:action="@{/scenarios/{id}/bodies(id=${scenario.id})}" method="post">
+                    <div class="field-row">
+                        <label class="field">
+                            <span>Nome</span>
+                            <input type="text" th:field="*{name}" required placeholder="Ex.: Nêmesis">
+                        </label>
+                        <label class="field field-color">
+                            <span>Cor</span>
+                            <input type="color" th:field="*{color}">
+                        </label>
+                    </div>
+
+                    <label class="field">
+                        <span>Massa (o Sol tem 50000, Júpiter 16)</span>
+                        <input type="number" th:field="*{mass}" min="0.1" step="any" required>
+                    </label>
+
+                    <div class="field-row">
+                        <label class="field">
+                            <span>Posição X</span>
+                            <input type="number" th:field="*{posX}" step="any" required>
+                        </label>
+                        <label class="field">
+                            <span>Posição Y</span>
+                            <input type="number" th:field="*{posY}" step="any" required>
+                        </label>
+                    </div>
+
+                    <div class="field-row">
+                        <label class="field">
+                            <span>Velocidade X</span>
+                            <input type="number" th:field="*{velX}" step="any" required>
+                        </label>
+                        <label class="field">
+                            <span>Velocidade Y</span>
+                            <input type="number" th:field="*{velY}" step="any" required>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary auth-submit">Adicionar corpo</button>
+                </form>
+
+                <h2>Seus corpos</h2>
+                <ul class="body-list">
+                    <li th:each="b : ${scenario.bodies}" th:if="${b.custom}">
+                        <span class="body-dot" th:style="'background:' + ${b.color}"></span>
+                        <span class="body-name" th:text="${b.name}">Corpo</span>
+                        <span class="body-mass" th:text="'massa ' + ${b.mass}">massa 10</span>
+                        <form th:action="@{/scenarios/{id}/bodies/{bodyId}/delete(id=${scenario.id},bodyId=${b.id})}" method="post">
+                            <button type="submit" class="btn-link">remover</button>
+                        </form>
+                    </li>
+                </ul>
+
+                <form class="sim-danger" th:action="@{/scenarios/{id}/delete(id=${scenario.id})}" method="post"
+                      onsubmit="return confirm('Excluir este cenário e todos os corpos dele?')">
+                    <a th:href="@{/scenarios}" href="/scenarios" class="btn btn-ghost">Voltar</a>
+                    <button type="submit" class="btn btn-ghost">Excluir cenário</button>
+                </form>
+            </aside>
         </div>
     </main>
 
     <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script src="/js/sandbox.js"></script>
 </body>
 </html>

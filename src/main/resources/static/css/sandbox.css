@@ -1,60 +1,125 @@
-/* ===== SANDBOX (placeholder until the Spring simulator is wired in) ===== */
-.sandbox-page {
-  max-width: 800px;
+/* ===== SANDBOX: simulação (página pública e página do cenário) ===== */
+.sim-page {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 32px 120px;
-  text-align: center;
+  padding: 60px 32px 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
 }
-.sandbox-page h1 {
-  font-size: 44px;
+
+.sim-heading .hero-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cyan);
+}
+.sim-heading h1 {
+  font-size: 40px;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
 .sandbox-note {
   color: var(--text-muted);
   font-size: 16px;
-  max-width: 560px;
+  max-width: 700px;
 }
-.sandbox-note strong { color: var(--text); }
 
-.sandbox-placeholder {
-  margin-top: 32px;
+/* Área onde o sandbox.js coloca o <canvas> */
+.sim-area {
   width: 100%;
-  max-width: 520px;
   aspect-ratio: 16 / 10;
   border-radius: 20px;
-  border: 1px dashed var(--border);
-  background:
-    radial-gradient(circle at center, rgba(34, 211, 238, 0.08), transparent 65%),
-    var(--night-blue);
-  position: relative;
+  border: 1px solid var(--border);
+  background: var(--night-blue);
   overflow: hidden;
 }
-.sandbox-placeholder::before,
-.sandbox-placeholder::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: sandbox-spin 12s linear infinite;
-}
-.sandbox-placeholder::before { width: 60%; aspect-ratio: 1; }
-.sandbox-placeholder::after { width: 90%; aspect-ratio: 1; animation-duration: 20s; animation-direction: reverse; }
+.sim-area canvas { display: block; }
+.sim-area.clicavel { cursor: crosshair; }
 
-@keyframes sandbox-spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.sandbox-actions {
+.sim-controls {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
   margin-top: 12px;
+}
+.sim-speed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.sim-speed input { accent-color: var(--cyan); }
+
+/* Página do cenário: simulação à esquerda, painel à direita */
+.sim-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .sim-layout { grid-template-columns: minmax(0, 1fr); }
+}
+
+.sim-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sim-panel h2 { font-size: 18px; font-weight: 700; }
+.sim-hint { color: var(--text-muted); font-size: 13px; }
+.sim-panel .auth-form { gap: 12px; }
+
+.field-row {
+  display: flex;
+  gap: 10px;
+}
+.field-row .field { flex: 1; min-width: 0; }
+.field-color { flex: 0 0 64px !important; }
+.field input[type="color"] { padding: 4px; height: 46px; cursor: pointer; }
+
+.body-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+.body-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.body-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.body-name { font-weight: 600; }
+.body-mass { color: var(--text-muted); flex: 1; }
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--cyan);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-link:hover { text-decoration: underline; }
+
+.sim-danger {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }

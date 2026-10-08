@@ -14,10 +14,14 @@
                     <li><a th:href="@{/sandbox}" href="/sandbox">Sandbox</a></li>
                 </ul>
 
-                <div class="nav-actions">
+                <!-- "loggedIn" vem do GlobalModelAttributes -->
+                <div class="nav-actions" th:unless="${loggedIn}">
                     <a th:href="@{/login}" href="/login" class="btn btn-ghost">Entrar</a>
                     <a th:href="@{/register}" href="/register" class="btn btn-primary">Cadastrar</a>
                 </div>
+                <form class="nav-actions" th:if="${loggedIn}" th:action="@{/logout}" action="/logout" method="post">
+                    <button type="submit" class="btn btn-ghost">Sair</button>
+                </form>
             </div>
         </nav>
     </header>
