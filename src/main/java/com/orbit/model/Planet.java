@@ -11,7 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-// Item do catálogo (Sol, planetas, Plutão). Dados fixos, criados pelo DataLoader.
 @Getter
 @Setter
 @NoArgsConstructor

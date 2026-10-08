@@ -26,7 +26,6 @@ public class ScenarioService {
         return scenarioRepository.findByUserEmailOrderByCreatedAtDesc(email);
     }
 
-    // Cria o cenário já com o Sistema Solar dentro dele.
     @Transactional
     public Scenario criar(ScenarioRequest request, String email) {
         User user = userRepository.findByEmail(email)
@@ -41,7 +40,6 @@ public class ScenarioService {
             body.setScenario(scenario);
             scenario.getBodies().add(body);
         }
-        // O cascade de "bodies" salva os corpos junto com o cenário.
         return scenarioRepository.save(scenario);
     }
 

@@ -6,8 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-// Adiciona "loggedIn" em todas as páginas, para o header mostrar
-// "Entrar / Cadastrar" ou "Sair".
+
 @ControllerAdvice
 public class GlobalModelAttributes {
 

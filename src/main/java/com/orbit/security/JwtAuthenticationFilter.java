@@ -37,8 +37,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    // Procura o token no header "Authorization: Bearer ..." (chamadas de API)
-    // ou no cookie "token" (navegação normal entre páginas).
+
     private String extractTokenFromRequest(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
         if (header != null && header.startsWith("Bearer ")) {

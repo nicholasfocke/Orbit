@@ -9,6 +9,5 @@ import java.util.Optional;
 public interface ScenarioRepository extends JpaRepository<Scenario, Long> {
     List<Scenario> findByUserEmailOrderByCreatedAtDesc(String email);
 
-    // Só encontra o cenário se ele for do usuário informado.
     Optional<Scenario> findByIdAndUserEmail(Long id, String email);
 }

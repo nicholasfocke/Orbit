@@ -32,7 +32,6 @@ public class Scenario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Muitos cenários pertencem a um usuário (coluna user_id).
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -47,7 +46,6 @@ public class Scenario {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    // Um cenário tem vários corpos. Apagar o cenário apaga os corpos junto.
     @OneToMany(mappedBy = "scenario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Body> bodies = new ArrayList<>();
 }

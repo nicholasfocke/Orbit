@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.List;
 
-// Todas as rotas daqui exigem login (ver SecurityConfig).
-// "principal.getName()" é o e-mail que veio dentro do JWT.
+
 @Controller
 @RequestMapping("/scenarios")
 @RequiredArgsConstructor
@@ -49,7 +48,6 @@ public class ScenarioController {
         return "scenario-details";
     }
 
-    // JSON lido pelo sandbox.js para simular este cenário.
     @GetMapping("/{id}/bodies")
     @ResponseBody
     public List<BodyResponse> bodies(@PathVariable Long id, Principal principal) {

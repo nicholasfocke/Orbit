@@ -15,8 +15,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-// Um corpo dentro de um cenário: pode ser um planeta do catálogo
-// (planet preenchido) ou um corpo criado pelo usuário (planet = null).
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -62,7 +61,6 @@ public class Body {
     @Column(name = "is_central", nullable = false)
     private boolean central;
 
-    // Corpo criado pelo usuário (não veio do catálogo).
     public boolean isCustom() {
         return planet == null;
     }

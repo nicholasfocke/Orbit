@@ -31,7 +31,6 @@ public class SecurityConfig {
             .csrf(c -> c.disable())
             .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
-                // Público: páginas de visualização, catálogo e sandbox do Sistema Solar
                 .requestMatchers("/", "/catalog", "/sandbox", "/sandbox/bodies").permitAll()
                 .requestMatchers("/login", "/register", "/forgot-password").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/register").permitAll()
@@ -39,9 +38,7 @@ public class SecurityConfig {
                 // Todo o resto (cenários e corpos) só com login
                 .anyRequest().authenticated()
             )
-            // Sem login, em vez de 403 o usuário é mandado para a tela de login.
             .exceptionHandling(e -> e.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login")))
-            // Sair = apagar o cookie com o token.
             .logout(l -> l
                 .logoutUrl("/logout")
                 .deleteCookies(JwtAuthenticationFilter.TOKEN_COOKIE)

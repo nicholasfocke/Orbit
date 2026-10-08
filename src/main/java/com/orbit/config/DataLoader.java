@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-// Roda ao subir a aplicação: se o catálogo estiver vazio,
-// cadastra o Sol, os oito planetas e Plutão.
-// A ordem importa: o BodyService monta as órbitas nessa ordem.
 @Component
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {

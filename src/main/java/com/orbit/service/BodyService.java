@@ -19,8 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BodyService {
 
-    // Unidades da simulação (não são as reais): distância em pixels, G = 1.
-    // O sandbox.js usa o mesmo G.
+
     private static final double G = 1;
     private static final double SUN_MASS = 50000;
     private static final String SUN_NAME = "Sol";
@@ -30,9 +29,7 @@ public class BodyService {
     private final BodyRepository bodyRepository;
     private final PlanetRepository planetRepository;
 
-    // Monta o Sistema Solar a partir do catálogo: o Sol parado no centro e
-    // cada planeta numa órbita circular, um pouco mais longe que o anterior.
-    // Os corpos voltam sem cenário (ainda não foram salvos).
+
     public List<Body> montarSistemaSolar() {
         List<Body> bodies = new ArrayList<>();
         double orbita = FIRST_ORBIT;
@@ -48,9 +45,7 @@ public class BodyService {
                 body.setMass(SUN_MASS);
                 body.setCentral(true);
             } else {
-                // Espalha os planetas em ângulos diferentes para não nascerem enfileirados.
                 double angulo = indice * 0.9;
-                // Velocidade de órbita circular: v = raiz(G * M / r)
                 double velocidade = Math.sqrt(G * SUN_MASS / orbita);
 
                 body.setMass(planet.getSize());
@@ -84,7 +79,6 @@ public class BodyService {
         return bodyRepository.save(body);
     }
 
-    // Só deixa remover corpos criados pelo usuário, nunca os planetas do catálogo.
     public void remover(Scenario scenario, Long bodyId) {
         Body body = bodyRepository.findById(bodyId)
                 .filter(b -> b.getScenario().getId().equals(scenario.getId()))
@@ -113,7 +107,6 @@ public class BodyService {
         return resposta;
     }
 
-    // Corpo do usuário: o tamanho na tela cresce com a massa (entre 3 e 20 px).
     private int tamanhoPelaMassa(double mass) {
         int tamanho = (int) Math.round(Math.cbrt(mass) * 2);
         return Math.max(3, Math.min(20, tamanho));

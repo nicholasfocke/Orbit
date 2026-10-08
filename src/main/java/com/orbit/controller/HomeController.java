@@ -25,13 +25,11 @@ public class HomeController {
         return "forgot-password";
     }
 
-    // Sandbox público: mostra só o Sistema Solar, sem salvar nada.
     @GetMapping("/sandbox")
     public String sandbox() {
         return "sandbox";
     }
 
-    // JSON lido pelo sandbox.js na página pública.
     @GetMapping("/sandbox/bodies")
     @ResponseBody
     public List<BodyResponse> sandboxBodies() {

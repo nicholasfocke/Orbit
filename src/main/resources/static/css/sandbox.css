@@ -28,11 +28,19 @@
 /* Área onde o sandbox.js coloca o <canvas> */
 .sim-area {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 20px;
+  min-height: 680px;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
   border: 1px solid var(--border);
   background: var(--night-blue);
   overflow: hidden;
+  box-shadow: 0 18px 50px rgba(13, 20, 35, 0.35);
+}
+@media (max-width: 900px) {
+  .sim-area {
+    min-height: 420px;
+    aspect-ratio: 4 / 3;
+  }
 }
 .sim-area canvas { display: block; }
 .sim-area.clicavel { cursor: crosshair; }

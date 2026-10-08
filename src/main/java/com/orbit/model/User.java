@@ -35,7 +35,6 @@ public class User {
     @Column(nullable = false)
     private String fullName;
 
-    // Preenchido automaticamente pelo Hibernate no momento do insert.
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;

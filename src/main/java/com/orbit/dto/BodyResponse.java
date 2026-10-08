@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// O que o sandbox.js recebe em JSON para desenhar e simular cada corpo.
 @Data
 @Builder
 @NoArgsConstructor
