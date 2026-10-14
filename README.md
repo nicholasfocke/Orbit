@@ -44,7 +44,7 @@ Projeto acadêmico desenvolvido para a disciplina de laboratório de programaç�
 
 | Recurso | Descrição |
 |---|---|
-| **Página inicial** | Apresentação do projeto com uma animação do Sistema Solar em `<canvas>`. |
+| **Página inicial** | Apresentação do projeto com uma animação do Sistema Solar. |
 | **Catálogo** | O Sol, os oito planetas e Plutão, com dados físicos reais (massa, distância do Sol, temperatura e duração do dia). Os dados vêm do banco e são renderizados com Thymeleaf. |
 | **Sandbox** | Simulação gravitacional do Sistema Solar em tempo real, com controles de pausa, reinício e velocidade. Nada é salvo. |
 | **Cadastro e login** | Criação de conta e autenticação com JWT. |
