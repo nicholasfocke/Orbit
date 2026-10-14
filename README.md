@@ -69,7 +69,7 @@ Projeto acadêmico desenvolvido para a disciplina de laboratório de programaç�
 | Framework | Spring Boot 4.1 (Spring Web MVC) |
 | Persistência | Spring Data JPA + Hibernate |
 | Banco de dados | PostgreSQL |
-| Segurança | Spring Security + JWT ([JJWT](https://github.com/jwtk/jjwt) 0.12) + BCrypt |
+| Segurança | Spring Security + JWT + BCrypt |
 | Views | Thymeleaf |
 | Produtividade | Lombok |
 | Front-end | HTML5, CSS3, JavaScript (Canvas 2D) |
