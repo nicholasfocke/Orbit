@@ -13,6 +13,15 @@ que cada usuário crie seus próprios **cenários**. Cada cenário é uma cópia
 lançar novos **corpos celestes** e ver como eles interagem com o Sol e os planetas. A gravidade é calculada
 entre **todos** os corpos, quadro a quadro, no navegador.
 
+## Autores
+
+| | |
+|---|---|
+| **Nicholas Focke** | [@nicholasfocke](https://github.com/nicholasfocke) |
+| **Igor Rafael** | |
+
+Projeto acadêmico desenvolvido para a disciplina de física da faculdade.
+
 ---
 
 ## Sumário
@@ -26,8 +35,6 @@ entre **todos** os corpos, quadro a quadro, no navegador.
 - [Como executar](#como-executar)
 - [Rotas](#rotas)
 - [Estrutura do projeto](#estrutura-do-projeto)
-- [Limitações conhecidas](#limitações-conhecidas)
-- [Autores](#autores)
 
 ---
 
@@ -447,25 +454,3 @@ src/main/resources/
         ├── catalog.js / planet-viewer.js
         └── planets-data.js
 ```
-
----
-
-## Limitações conhecidas
-
-- **CSRF desativado:** a proteção CSRF do Spring Security está desligada. O cookie `SameSite=Lax` reduz o
-  risco, mas um ambiente de produção deve reativá-la.
-- **Segredos no arquivo de configuração:** o `jwt.secret` e as credenciais do banco ficam em
-  `application.properties`. Em produção, devem vir de variáveis de ambiente.
-- **Recuperação de senha:** a tela é apenas visual e nenhum e-mail é enviado.
-- **Colisões:** não há detecção de colisão entre corpos; corpos muito próximos apenas se atravessam.
-
----
-
-## Autores
-
-| | |
-|---|---|
-| **Nicholas Focke** | [@nicholasfocke](https://github.com/nicholasfocke) |
-| **Igor Rafael** | |
-
-Projeto acadêmico desenvolvido para a disciplina de física da faculdade.
