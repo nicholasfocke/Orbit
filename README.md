@@ -20,7 +20,7 @@ entre **todos** os corpos, quadro a quadro, no navegador.
 | **Nicholas Focke** | [@nicholasfocke](https://github.com/nicholasfocke) |
 | **Igor Rafael** | |
 
-Projeto acadêmico desenvolvido para a disciplina de física da faculdade.
+Projeto acadêmico desenvolvido para a disciplina de laboratório de programação IV.
 
 ---
 
