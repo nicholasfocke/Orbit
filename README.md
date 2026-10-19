@@ -275,8 +275,7 @@ Um corpo com massa 500, posição (200, 0) e velocidade (0, 15):
 
 ## Autenticação e segurança
 
-- **Cadastro e login:** `POST /auth/register` e `POST /auth/login` validam as credenciais e geram um **JWT**
-  assinado com HMAC-SHA256 e validade de 24 horas.
+- **Cadastro e login:** `POST /auth/register` e `POST /auth/login` validam as credenciais e geram um **JWT** validade de 24 horas.
 - **Cookie do token:** o token é enviado em um cookie **`HttpOnly`** e **`SameSite=Lax`**. Assim, o navegador o
   envia automaticamente em toda navegação entre páginas, e scripts da página não conseguem lê-lo.
 - **Leitura do token:** o `JwtAuthenticationFilter` lê o token do cookie ou do header `Authorization: Bearer`
