@@ -8,3 +8,5 @@ mvnw
 mvnw.cmd
 *.md
 *.sql
+.env
+.env.*

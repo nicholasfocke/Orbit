@@ -34,3 +34,6 @@ build/
 
 ### Dump do banco (contem dados de usuarios) ###
 *.sql
+
+### Variaveis de ambiente locais (contem senhas) ###
+.env
